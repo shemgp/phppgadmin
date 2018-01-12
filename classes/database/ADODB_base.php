@@ -141,7 +141,9 @@ class ADODB_base {
 
 		// Build clause
 		$sql = '';
-		while(list($key, $value) = each($conditions)) {
+
+		foreach($conditions as $key=>$value)
+		{
 			$this->clean($key);
 			$this->clean($value);
 			if ($sql) $sql .= " AND \"{$key}\"='{$value}'";
